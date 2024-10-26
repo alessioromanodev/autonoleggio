@@ -17,10 +17,11 @@ public class CarController {
         this.carService = carService;
     }
 
-    @GetMapping("/car")
-    public String listCars(Model model) {
+    @GetMapping("/")
+    public String home(Model model) {
         List<CarDto> cars = carService.findAllCars();
         model.addAttribute("cars", cars);
-        return "cars-list";
+        System.out.println(cars);
+        return "home";
     }
 }

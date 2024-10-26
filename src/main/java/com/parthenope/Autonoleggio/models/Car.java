@@ -19,9 +19,9 @@ public class Car {
     private String model;
     private String type;
     private String color;
+    private String url;
     private int year;
     private String status;
     private double hourlyRate;
 }
-
 

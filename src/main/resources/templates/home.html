@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Autonoleggio - Homepage</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .card-img-top {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Autonoleggio</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Display 8 Cars in Cards with Flexbox -->
+<section class="my-5">
+    <div class="container">
+        <div class="d-flex flex-wrap justify-content-between">
+            <div class="col-md-4 mb-4" th:each="car, stat : ${cars}" th:if="${stat.index < 6}">
+                <div class="card h-100">
+                    <img th:src="${car.url}" class="card-img-top" alt="Car image">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${car.brand + ' ' + car.model}"></h5>
+                        <p class="card-text" th:text="'Type: ' + ${car.type} + ', Color: ' + ${car.color}"></p>
+                        <p class="card-text" th:text="'Year: ' + ${car.year}"></p>
+                        <p class="card-text" th:text="'Hourly Rate: €' + ${car.hourlyRate}"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Welcome Section -->
+<section class="my-5 text-center">
+    <h1>Welcome to Autonoleggio</h1>
+    <p>Your trusted car rental service. We provide a wide range of vehicles to suit your needs.</p>
+    <a href="#" class="btn btn-primary">View All Cars</a>
+</section>
+
+<!-- Services Section -->
+<section class="my-5">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-4">
+                <h3>Flexible Rentals</h3>
+                <p>Rent by the hour, day, or week – choose a plan that fits your schedule.</p>
+            </div>
+            <div class="col-md-4">
+                <h3>Affordable Rates</h3>
+                <p>Competitive pricing on all car rentals with no hidden fees.</p>
+            </div>
+            <div class="col-md-4">
+                <h3>Customer Support</h3>
+                <p>24/7 customer support for any rental or car issues you may encounter.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section class="my-5 bg-light text-center">
+    <h2>What Our Clients Say</h2>
+    <blockquote class="blockquote">
+        <p class="mb-0">"Great service and affordable prices!"</p>
+        <footer class="blockquote-footer">John Doe</footer>
+    </blockquote>
+    <blockquote class="blockquote">
+        <p class="mb-0">"Wide selection of cars, highly recommended!"</p>
+        <footer class="blockquote-footer">Jane Smith</footer>
+    </blockquote>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

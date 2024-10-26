@@ -25,6 +25,7 @@ public class CarServiceImpl implements CarService {
     private CarDto mapToCarDto(Car car){
         CarDto carDto = CarDto.builder().build();
         carDto.setId(car.getId());
+        carDto.setUrl(car.getUrl());
         carDto.setBrand(car.getBrand());
         carDto.setModel(car.getModel());
         carDto.setColor(car.getColor());
